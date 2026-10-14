@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codle</title>
+</head>
+<body>
+    <div id="nb"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked@4.3.0/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/notebookjs@0.8.2/notebook.min.js"></script>
+    <script>
+        fetch(new URLSearchParams(location.search).get('file'))
+            .then(r => r.json())
+            .then(json => document.getElementById('nb').appendChild(nb.parse(json).render()));
+    </script>
+</body>
+</html>
